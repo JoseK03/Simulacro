@@ -53,7 +53,8 @@
                     <th>ID</th>
                     <th>MATERIAL</th>
                     <th>PRECIO</th>
-                    <th>DETALLE</th>
+                    <th>ELIMINAR</th>
+                    <th>EDITAR</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,15 +67,11 @@
                     <td><?php echo $value['id_material']?></td>
                     <td><?php echo $value['nombre_material']?></td>
                     <td><?php echo $value['precio']?></td>
-                    <td>
-                        <a href="eliminarMateriales.php"></a>
-                        <a href=""></a>
-                    </td>
+                    <td> <a href="eliminarMateriales.php?id_material=<?=$value['id_material']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
+                    <td><a class="btn btn-warning" href="">EDITAR</a></td>
                 </tr>
                 <?php } ?>
-               
-                
-            
+
             </tbody>
         </table>
     </main>

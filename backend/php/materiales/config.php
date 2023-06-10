@@ -71,7 +71,16 @@
                 $stm = $this->dbCnx->prepare("SELECT * FROM materiales");
                 $stm->execute();
                 return $stm->fetchAll();
-            }  catch (Exception $e){
+            }catch (Exception $e){
+                return $e->getMessage();
+            }
+        }
+
+        public function Delete(){
+            try {
+                $stm = $this->dbCnx->prepare("DELETE FROM materiales WHERE id_material = ?");
+                $stm->execute([$this->id_material]);
+            }catch (Exception $e){
                 return $e->getMessage();
             }
         }
