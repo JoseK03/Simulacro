@@ -9,8 +9,8 @@
     --color-negro: #000000;
     --gris-oscruo: #575757;
     --gris-claro: #aeaeae;
-
 }
+
 header{
     display: flex;
     background-color: var(--gris-claro);

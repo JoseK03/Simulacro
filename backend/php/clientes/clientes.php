@@ -33,7 +33,7 @@
     </header>
     <main>
         <button type="button" class="btn boton" data-bs-toggle="modal" data-bs-target="#registrarCliente" data-bs-whatever="@mdo">Registrate como cliente</button>
-
+ 
         <table class="table">
             <thead>
                 <tr>

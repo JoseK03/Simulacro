@@ -8,7 +8,7 @@
     }
     
     if(!defined("DB_NAME")){
-        define("DB_NAME","supermarket");
+        define("DB_NAME","alquilartemis");
     }
     
     if(!defined("DB_USER")){

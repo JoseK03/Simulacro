@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="../../../frontend/css/styles.css">
 </head>
 <body>
-<header>
-<header>
+
+    <header>
         <img src="../../../frontend/images/logoo.png" alt="">
         <nav>
             <ul class="nav justify-content-end">
@@ -31,7 +31,7 @@
         </nav>
     </header>
     <main>
-        <button type="button" class="btn boton" data-bs-toggle="modal" data-bs-target="#registrarCliente" data-bs-whatever="@mdo">Agregar Material</button>
+        <button type="button" class="btn boton" data-bs-toggle="modal" data-bs-target="#registrarMaterial" data-bs-whatever="@mdo">Agregar Material</button>
 
         <table class="table">
             <thead>
@@ -43,6 +43,12 @@
                 </tr>
             </thead>
             <tbody>
+                <tr class="table-active">
+                    <td>hola</td>
+                    <td>hola</td>
+                    <td>hola</td>
+                    <td>hola</td>
+                </tr>
                
                 
             
@@ -54,7 +60,7 @@
 
 
 
-<div class="modal fade" id="registrarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="registrarMaterial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -62,18 +68,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="registrarClientes.php" method="POST">
+        <form action="registrarMaterial.php" method="POST">
             <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Nombre</label>
                 <input type="text" class="form-control" name="nombre">
             </div>
             <div class="mb-3">
-                <label for="message-text" class="col-form-label">Celular</label>
-                <textarea class="form-control" name="celular"></textarea>
+                <label for="message-text" class="col-form-label">Material</label>
+                <input type="text" class="form-control" name="material">
             </div>
             <div class="mb-3">
-                <label for="message-text" class="col-form-label">NIT</label>
-                <textarea class="form-control" name="nit" ></textarea>
+                <label for="message-text" class="col-form-label">Precio</label>
+                <input type="text" class="form-control" name="precio">
              </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
