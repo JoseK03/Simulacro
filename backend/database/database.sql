@@ -21,7 +21,7 @@ CREATE TABLE clientes(
     nit INT
 );
 
-CREATE TABLE contizacion(
+CREATE TABLE cotizacion(
     id_cotizacion INT PRIMARY KEY AUTO_INCREMENT,
     id_empleado INT,
     id_cliente INT,
