@@ -10,7 +10,6 @@
     <title>AlquilArtemis</title>
 </head>
 <body>
-    <h1>hola</h1>
-    <h2>hola</h2>
+    <h1>caho</h1>
 </body>
 </html>
