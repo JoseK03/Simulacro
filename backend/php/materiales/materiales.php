@@ -1,4 +1,18 @@
+<?php
+ //? Lector de errores
 
+ ini_set("display_errors", 1);
+
+ ini_set("display_startup_errors", 1);
+ 
+ error_reporting(E_ALL);
+
+ //?------------------------------
+
+ require_once("config.php");
+ $data = new Config;
+ $all = $data->ObtainAll();
+?>
 
 
 <!DOCTYPE html>
@@ -43,12 +57,21 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- //todo----llenado dinamico -->
+                <?php
+                    foreach ($all as $key => $value) {
+                    
+                ?>
                 <tr class="table-active">
-                    <td>hola</td>
-                    <td>hola</td>
-                    <td>hola</td>
-                    <td>hola</td>
+                    <td><?php echo $value['id_material']?></td>
+                    <td><?php echo $value['nombre_material']?></td>
+                    <td><?php echo $value['precio']?></td>
+                    <td>
+                        <a href="eliminarMateriales.php"></a>
+                        <a href=""></a>
+                    </td>
                 </tr>
+                <?php } ?>
                
                 
             
@@ -64,15 +87,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cliente</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Material</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="registrarMaterial.php" method="POST">
-            <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre">
-            </div>
+        <form action="agregarMateriales.php" method="POST">
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Material</label>
                 <input type="text" class="form-control" name="material">
@@ -83,7 +102,7 @@
              </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                <input type="submit" class="btn btn-warning" value="Registrar nuevo cliente" name="clientes"/>
+                <input type="submit" class="btn btn-warning" value="Registrar nuevo cliente" name="agregar"/>
             </div>
         </form>
       </div>

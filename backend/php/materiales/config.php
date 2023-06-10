@@ -21,10 +21,60 @@
         private $nombre_material;
         private $precio;
 
-        public function __construct($id_material = 0, $nombre_material = "", $precio = ""){
-
+        public function __construct($id_material = 0, $nombre_material = "", $precio = "", $dbCnx = ""){
+            $this->id_material = $id_material;
+            $this->nombre_material = $nombre_material;
+            $this->precio = $precio;
+            
+            parent:: __construct($dbCnx);
         }
 
+        //? Setters y Getters
+
+        public function SetIdMaterial($id_material){
+            $this->id_material = $id_material;
+        }
+
+        public function GetIdMaterial(){
+            return $this->id_material;
+        }
+
+        public function SetNombreMaterial($nombre_material){
+            $this->nombre_material = $nombre_material;
+        }
+
+        public function GetNombreMaterial(){
+            return $this->nombre_material;
+        }
+
+        public function SetPrecio($precio){
+            $this->precio = $precio;
+        }
+
+        public function GetPrecio(){
+            return $this->precio;
+        }
+        //?---------------------------------------
+
+
+        public function InsertData(){
+            try {
+                $stm = $this->dbCnx->prepare("INSERT INTO materiales(nombre_material, precio) values(?,?)");
+                $stm->execute([$this->nombre_material, $this->precio]);
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
+
+        public function ObtainAll(){
+            try {
+                $stm = $this->dbCnx->prepare("SELECT * FROM materiales");
+                $stm->execute();
+                return $stm->fetchAll();
+            }  catch (Exception $e){
+                return $e->getMessage();
+            }
+        }
     }
 
 ?>
