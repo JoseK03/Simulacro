@@ -8,18 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alquilartemis</title>
     <!-- css -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../../frontend/css/styles.css">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/e645fa77c6.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <img src="../css/images/logoo.png" alt="">
+        <img src="../../../frontend/images/logoo.png" alt="">
         <nav>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link fs-3" href="../principal/principal.php" id="link">Materiales</a>
+                    <a class="nav-link fs-3" href="../materiales/materiales.php" id="link">Materiales</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link fs-3" href="../cotizacion/cotizacion.php" id="link">Cotizacion</a>
