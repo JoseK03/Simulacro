@@ -20,7 +20,9 @@
         private $nombre_material;
         private $precio;
 
-        public function __construct($id_material = 0, $nombre_material = "", $precio = "");
+        public function __construct($id_material = 0, $nombre_material = "", $precio = ""){
+
+        }
 
     }
 
