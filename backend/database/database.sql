@@ -27,7 +27,7 @@ CREATE TABLE contizacion(
     id_cliente INT,
     fecha DATE,
     hora VARCHAR(50),
-    total_a_pagar VARCHAR(50)
+    total_a_pagar VARCHAR(50),
     Foreign Key (id_empleado) REFERENCES empleados(id_empleado),
-    Foreign Key (id_cliente) REFERENCES cliente(id_cliente)
+    Foreign Key (id_cliente) REFERENCES clientes(id_cliente)
 );
