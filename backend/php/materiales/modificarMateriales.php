@@ -57,13 +57,13 @@
         </nav>
     </header>
     <main class="main">
-        <form action="modificarMateriales.php" class="col d flex flex-wrap" method="post">
+        <form action="" class="col d flex flex-wrap" method="post">
             <!-- //todo   seccion edicion del nombre -->
             <div class="form-label" id="div">
                 <label for="nombre">Nombre del Material</label>
                 <input 
                     type="text"
-                    name="material"
+                    name="nombre_material"
                     id="inputs"
                     class="form-control"
                     value = "<?php echo $value['nombre_material']; ?>">
@@ -73,7 +73,7 @@
                 <label for="nombre">Precio del Material</label>
                 <input 
                     type="text"
-                    name="material"
+                    name="precio"
                     id="inputs"
                     class="form-control"
                     value = "<?php echo $value['precio']; ?>">

@@ -21,7 +21,7 @@ if(isset($_GET['id_material']) && isset($_GET['req'])){
         echo "<script>alert('los datos se borraron exitosamente');document.location='materiales.php'</script>";
     }
 }else{
-    echo "hola";
+    
 }
-echo "holaaa";
+
 ?>
