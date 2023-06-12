@@ -11,13 +11,12 @@
     --gris-claro: #aeaeae;
 }
 
+
+
 header{
     display: flex;
     background-color: var(--gris-claro);
     height: 18vh;
-    
-    
-    
 }
 
 header img{
@@ -93,4 +92,14 @@ main{
 .boton{
     background-color: var(--gris-oscruo) !important;
     color: var(--color-amarillo) !important;
+}
+
+/* //? Pagina Modificar */
+
+#div{
+    width: 800px;
+}
+.main{
+    height: 82vh;
+  background-color: var(--gris-oscruo);
 }

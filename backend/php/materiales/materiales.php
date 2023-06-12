@@ -68,7 +68,7 @@
                     <td><?php echo $value['nombre_material']?></td>
                     <td><?php echo $value['precio']?></td>
                     <td> <a href="eliminarMateriales.php?id_material=<?=$value['id_material']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
-                    <td><a class="btn btn-warning" href="">EDITAR</a></td>
+                    <td><a class="btn btn-warning" href="modificarMateriales.php?id_material=<?=$value['id_material']?>">EDITAR</a></td>
                 </tr>
                 <?php } ?>
 

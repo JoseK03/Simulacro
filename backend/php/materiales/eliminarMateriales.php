@@ -14,7 +14,8 @@ $config = new Config();
 
 if(isset($_GET['id_material']) && isset($_GET['req'])){
     if($_GET['req']=='delete'){
-            
+        
+        $config->SetIdMaterial($_GET['id_material']);
         $config->Delete();
 
         echo "<script>alert('los datos se borraron exitosamente');document.location='materiales.php'</script>";

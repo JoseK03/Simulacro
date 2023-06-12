@@ -84,6 +84,26 @@
                 return $e->getMessage();
             }
         }
+
+        public function SelectOne(){
+            try {
+                $stm = $this->dbCnx->prepare("SELECT * FROM materiales WHERE id_material = ?");
+                $stm->execute([$this->id_material]);
+                return $stm->fetchAll();
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
+
+        public function Update(){
+            try {
+                $stm = $this->dbCnx->prepare("UPDATE materiales SET nombre_material = ? , precio = ? WHERE id_material = ?");
+                $stm->execute([$this->nombre_material, $this->precio, $this->id_material]);
+                return $stm->fetchAll();
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
     }
 
 ?>
