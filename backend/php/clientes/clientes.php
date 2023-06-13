@@ -77,8 +77,9 @@ $data = $config->ObtainAll();
                     <td><?php echo $value['celular']?></td>
                     <td><?php echo $value['nit']?></td>
                     <td> <a href="eliminarClientes.php?id_cliente=<?=$value['id_cliente']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
-                    <td><a href="" class="btn btn-warning">Editar</a></td>
-                </tr>   
+                    <td><a href="modificarClientes.php?id_cliente=<?=$value['id_cliente']?>" class="btn btn-warning">Editar</a></td>
+<!--                     <td><a class="btn btn-warning" href="modificarMateriales.php?id_material=<?=$value['id_material']?>">EDITAR</a></td>
+ -->                </tr>   
                 
 
                 <?php } ?>

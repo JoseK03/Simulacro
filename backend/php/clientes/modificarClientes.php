@@ -12,19 +12,21 @@
 require_once('config.php');
 $config = new Config();
 
-$id = $_GET['id_empleado'];
-$config->SetIdEmpleado($id);
+$id = $_GET['id_cliente'];
+$config->SetIdCliente($id);
 $data = $config->SelectOne();
-$value = $data[0];
+$value= $data[0];
 
 if(isset($_POST['editar'])){
-    $config->SetNombreEmpleado($_POST['nombre_empleado']);
-    $config->SetContraseña($_POST['contraseña']);
+    $config->SetNombreCliente($_POST['nombre_cliente']);
+    $config->SetCelular($_POST['celular']);
+    $config->SetNit($_POST['nit']);
 
     $config->Update();
 
-    echo "<script>alert('Datos modificados con exito');document.location='empleados.php'</script>";
+    echo "<script>alert('los datos han sido modificados con exito');document.location='clientes.php'</script>";
 }
+
 
 
 ?>
@@ -64,23 +66,33 @@ if(isset($_POST['editar'])){
         <form action="" class="col d flex flex-wrap" method="post">
             <!-- //todo   seccion edicion del nombre -->
             <div class="form-label" id="div">
-                <label for="nombre_empleado">Nombre del Empleado</label>
+                <label for="nombre_cliente">Nombre del Cliente</label>
                 <input 
                     type="text"
-                    name="nombre_empleado"
+                    name="nombre_cliente"
                     id="inputs"
                     class="form-control"
-                    value = "<?php echo $value['nombre_empleado']; ?>">
+                    value = "<?php echo $value['nombre_cliente']; ?>">
             </div>
             <!-- //todo   seccion edicion del nombre -->
             <div class="form-label" id="div">
-                <label for="nombre">Password</label>
+                <label for="celular">Celular</label>
                 <input 
-                    type="text"
-                    name="contraseña"
+                    type="number"
+                    name="celular"
                     id="inputs"
                     class="form-control"
-                    value = "<?php echo $value['contraseña']; ?>">
+                    value = "<?php echo $value['celular']; ?>">
+            </div>
+
+            <div class="form-label" id="div">
+                <label for="nit">Nit</label>
+                <input 
+                    type="number"
+                    name="nit"
+                    id="inputs"
+                    class="form-control"
+                    value = "<?php echo $value['nit']; ?>">
             </div>
 
             <!-- //todo   Boton Editar -->

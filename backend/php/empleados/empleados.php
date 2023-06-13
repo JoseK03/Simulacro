@@ -9,6 +9,9 @@
 
  //?------------------------------
 
+ require_once('config.php');
+ $config = new Config();
+ $data= $config->ObtainAll();
 
 ?>
 
@@ -60,15 +63,15 @@
             <tbody>
                 <!-- //todo----llenado dinamico -->
                 <?php
-                    foreach ($all as $key => $value) {
+                    foreach ($data as $key => $value) {
                     
                 ?>
                 <tr class="table-active">
-                    <td><?php echo $value['id_material']?></td>
-                    <td><?php echo $value['nombre_material']?></td>
-                    <td><?php echo $value['precio']?></td>
-                    <td> <a href="eliminarMateriales.php?id_material=<?=$value['id_material']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
-                    <td><a class="btn btn-warning" href="modificarMateriales.php?id_material=<?=$value['id_material']?>">EDITAR</a></td>
+                    <td><?php echo $value['id_empleado']?></td>
+                    <td><?php echo $value['nombre_empleado']?></td>
+                    <td><?php echo $value['contraseña']?></td>
+                    <td> <a href="eliminarEmpleados.php?id_empleado=<?=$value['id_empleado']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
+                    <td><a class="btn btn-warning" href="modificarEmpleados.php?id_empleado=<?=$value['id_empleado']?>">EDITAR</a></td>
                 </tr>
                 <?php } ?>
 
@@ -95,7 +98,7 @@
             </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Password</label>
-                <input type="text" class="form-control" name="password">
+                <input type="text" class="form-control" name="contraseña">
              </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>

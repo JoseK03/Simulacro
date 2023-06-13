@@ -92,6 +92,26 @@ class Config extends Conectar{
         }
     }
 
+    public function SelectOne(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM clientes WHERE id_cliente = ?");
+            $stm->execute([$this->id_cliente]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function Update(){
+        try {
+            $stm = $this->dbCnx->prepare("UPDATE clientes SET nombre_cliente = ?, celular = ?, nit = ? WHERE id_cliente = ?");
+            $stm->execute([$this->nombre_cliente, $this->celular, $this->nit, $this->id_cliente]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
 }
 
 ?>
