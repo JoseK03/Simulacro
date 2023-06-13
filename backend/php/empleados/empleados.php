@@ -1,5 +1,3 @@
-
-
 <?php
  //? Lector de errores
 
@@ -10,12 +8,8 @@
  error_reporting(E_ALL);
 
  //?------------------------------
-require_once("config.php");
-$config = new Config;
-$data = $config->ObtainAll();
 
 
- 
 ?>
 
 
@@ -46,41 +40,36 @@ $data = $config->ObtainAll();
                 </li>
                 <li class="nav-item">
                     <a class="nav-link fs-3" href="../empleados/empleados.php" id="link">Empleados</a>
-                </li>
-                
+                </li>  
             </ul>
         </nav>
     </header>
     <main>
-        <!-- //TODO   boton agregar cliente -->
-        <button type="button" class="btn boton" data-bs-toggle="modal" data-bs-target="#registrarCliente" data-bs-whatever="@mdo">Agregar Cliente</button>
+        <button type="button" class="btn boton" data-bs-toggle="modal" data-bs-target="#registrarEmpleados" data-bs-whatever="@mdo">Agregar Empleado</button>
 
         <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>CELULAR</th>
-                    <th>NIT</th>
+                    <th>USERNAME</th>
+                    <th>PASSWORD</th>
+                    <th>ELIMINAR</th>
                     <th>EDITAR</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- //todo----llenado dinamico -->
-                <?php 
-                    foreach ($data as $key => $value) {
+                <?php
+                    foreach ($all as $key => $value) {
                     
-                 ?>
+                ?>
                 <tr class="table-active">
-                    <td><?php echo $value['id_cliente']?></td>
-                    <td><?php echo $value['nombre_cliente']?></td>
-                    <td><?php echo $value['celular']?></td>
-                    <td><?php echo $value['nit']?></td>
-                    <td> <a href="eliminarClientes.php?id_cliente=<?=$value['id_cliente']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
-                    <td><a href="" class="btn btn-warning">Editar</a></td>
-                </tr>   
-                
-
+                    <td><?php echo $value['id_material']?></td>
+                    <td><?php echo $value['nombre_material']?></td>
+                    <td><?php echo $value['precio']?></td>
+                    <td> <a href="eliminarMateriales.php?id_material=<?=$value['id_material']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
+                    <td><a class="btn btn-warning" href="modificarMateriales.php?id_material=<?=$value['id_material']?>">EDITAR</a></td>
+                </tr>
                 <?php } ?>
 
             </tbody>
@@ -91,30 +80,26 @@ $data = $config->ObtainAll();
 
 
 
-<div class="modal fade" id="registrarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="registrarEmpleados" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cliente</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Empleado</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="agregarClientes.php" method="POST">
+        <form action="agregarEmpleados.php" method="POST">
             <div class="mb-3">
-                <label for="message-text" class="col-form-label">Nombre</label>
+                <label for="message-text" class="col-form-label">Username</label>
                 <input type="text" class="form-control" name="nombre">
             </div>
             <div class="mb-3">
-                <label for="message-text" class="col-form-label">Celular</label>
-                <input type="text" class="form-control" name="celular">
-             </div>
-             <div class="mb-3">
-                <label for="message-text" class="col-form-label">NIT</label>
-                <input type="text" class="form-control" name="nit">
+                <label for="message-text" class="col-form-label">Password</label>
+                <input type="text" class="form-control" name="password">
              </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                <input type="submit" class="btn btn-warning" value="Registrar nuevo cliente" name="agregar"/>
+                <input type="submit" class="btn btn-warning" value="Registrar nuevo empleado" name="agregar"/>
             </div>
         </form>
       </div>

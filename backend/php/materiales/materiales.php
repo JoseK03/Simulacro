@@ -40,6 +40,9 @@
                 <li class="nav-item">
                     <a class="nav-link fs-3" href="../clientes/clientes.php" id="link">Clientes</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-3" href="../empleados/empleados.php" id="link">Empleados</a>
+                </li>
                 
             </ul>
         </nav>
@@ -99,7 +102,7 @@
              </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                <input type="submit" class="btn btn-warning" value="Registrar nuevo cliente" name="agregar"/>
+                <input type="submit" class="btn btn-warning" value="Registrar nuevo material" name="agregar"/>
             </div>
         </form>
       </div>
