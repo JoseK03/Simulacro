@@ -47,25 +47,26 @@
         </nav>
     </header>
     <main>
-        <!-- //TODO   boton agregar cliente -->
-        <button type="button" class="btn boton" data-bs-toggle="modal" data-bs-target="#registrarCliente" data-bs-whatever="@mdo">Agregar Cliente</button>
+        <!-- //TODO   boton agregar cotizacion -->
+        <button type="button" class="btn boton" data-bs-toggle="modal" data-bs-target="#registrarCotizacion" data-bs-whatever="@mdo">Agregar Cotizacion</button>
 
         <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>FECHA</th>
                     <th>CLIENTE</th>
                     <th>MATERIAL</th>
-                    <th>FECHA</th>
+                    <th>DETALLE</th>
                     <th>ELIMINAR</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- //todo----llenado dinamico -->
-                <?php 
+               <!--  <?php 
                     foreach ($data as $key => $value) {
                     
-                 ?>
+                 ?> -->
                 <tr class="table-active">
                     <td><?php echo $value['id_cliente']?></td>
                     <td><?php echo $value['nombre_cliente']?></td>
@@ -86,38 +87,46 @@
 
 
 
-<div class="modal fade" id="registrarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="registrarCotizacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cotizacion</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Cotizacion</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form action="agregarClientes.php" method="POST">
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Fecha</label>
-                <input type="date" class="form-control" name="asesor">
+                <input type="date" class="form-control" name="fecha_cotizacion">
              </div>
-            <div class="mb-3">
-                <label for="message-text" class="col-form-label">Asesor</label>
-                <input type="text" class="form-control" name="asesor">
+             <div class="mb-3">
+                <label for="message-text" class="col-form-label">Hora</label>
+                <input type="time" class="form-control" name="hora_cotizacion">
              </div>
-            <div class="mb-3">
-                <label for="message-text" class="col-form-label">Material</label>
-                <input type="text" class="form-control" name="material">
-            </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Cliente</label>
                 <input type="text" class="form-control" name="cliente">
              </div>
-             <div class="mb-3">
+            <div class="mb-3">
                 <label for="message-text" class="col-form-label">Asesor</label>
                 <input type="text" class="form-control" name="asesor">
+            </div>
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label">Material</label>
+                <input type="text" class="form-control" name="material">
+             </div>
+             <div class="mb-3">
+                <label for="message-text" class="col-form-label">Cantidad</label>
+                <input type="number" class="form-control" name="cantidad">
+             </div>
+             <div class="mb-3"> 
+                <label for="message-text" class="col-form-label">Dias a tomar el servicio</label>
+                <input type="number" class="form-control" name="dias_servicio">
              </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                <input type="submit" class="btn btn-warning" value="Registrar nuevo cliente" name="agregar"/>
+                <input type="submit" class="btn btn-warning" value="Generar Cotización" name="agregar"/>
             </div>
         </form>
       </div>
