@@ -118,5 +118,18 @@ class ConfigCotizacion extends Conectar{
     public function GetTotalPagar(){
         return $this->total_a_pagar;
     }
+
+    //!-----FUNCIONES CRUD---------
+
+    public function InsertData(){
+        try {
+            $stm = $this->dbCnx->prepare("INSERT INTO cotizacion(id_empleado, id_cliente, id_material, fecha_cotizacion, hora_cotizacion, cantidad_dias, total_a_pagar) VALUES(?,?,?,?,?,?,?)");
+            $stm->execute([$this->id_empleado, $this->id_cliente, $this->id_material, $this->fecha_cotizacion, $this->hora_cotizacion, $this->cantidad_dias, $this->total_a_pagar]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    
 }
 ?>

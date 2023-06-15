@@ -95,7 +95,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="agregarClientes.php" method="POST">
+        <form action="agregarCotizacion.php" method="POST">
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Fecha</label>
                 <input type="date" class="form-control" name="fecha_cotizacion">
@@ -106,7 +106,10 @@
              </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Cliente</label>
-                <input type="text" class="form-control" name="cliente">
+                <select name="cliente_id" id="cliente_id">
+                    <option value="pepito" >pepito</option>
+                </select>
+                
              </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Asesor</label>
