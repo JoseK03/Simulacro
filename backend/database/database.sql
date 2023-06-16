@@ -31,8 +31,11 @@ CREATE TABLE cotizacion(
     fecha_cotizacion DATE,
     hora_cotizacion TIME,
     cantidad_dias INT,
+    cantidad_material INT,
     total_a_pagar BIGINT,
     Foreign Key (id_empleado) REFERENCES empleados(id_empleado),
     Foreign Key (id_cliente) REFERENCES clientes(id_cliente),
     Foreign Key (id_material) REFERENCES materiales(id_material)  
 );
+
+

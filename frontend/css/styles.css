@@ -103,3 +103,13 @@ main{
     height: 82vh;
   background-color: var(--gris-oscruo);
 }
+
+#modalcotiza {
+    display: flex ;
+    gap: 3rem;
+}
+
+.modalcotiza{
+    display: flex !important;
+    gap: 3rem;
+}

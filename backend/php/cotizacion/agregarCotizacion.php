@@ -14,7 +14,15 @@ if(isset($_POST['agregar'])){
     $config = new ConfigCotizacion();
     $config->SetFechaCotizacion($_POST['fecha_cotizacion']);
     $config->SetHoraCotizacion($_POST['hora_cotizacion']);
-    $config->SetIdCliente($_POST['cliente']);
+    $config->SetIdCliente($_POST['id_cliente']);
+    $config->SetIdEmpleado($_POST['id_empleado']);
+    $config->SetIdMaterial($_POST['id_material']);
+    $config->SetCantidadMaterial($_POST['cantidad_material']);
+    $config->SetCantidadDias($_POST['dias_servicio']);
+    
+    $config->InsertData();
+
+    echo "<script>alert('Cotizacion realizada');document.location='cotizacion.php'</script>";
 }
 
 ?>
