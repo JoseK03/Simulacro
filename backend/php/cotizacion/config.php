@@ -24,7 +24,7 @@ class ConfigCotizacion extends Conectar{
     private $cantidad_material;
     private $total_a_pagar;
 
-    public function __construct($id_cotizacion = 0, $id_empleado = 0, $id_cliente = 0, $id_material = 0, $fecha_cotizacion = "", $hora_cotizacion = "", $cantidad_dias =  0, $cantidad_material = 0, $total_a_pagar = 0, $dbCnx = "")
+    public function __construct($id_cotizacion = 0, $id_empleado = "", $id_cliente = "", $id_material = "", $fecha_cotizacion = "", $hora_cotizacion = "", $cantidad_dias =  0, $cantidad_material = 0, $total_a_pagar = 0, $dbCnx = "")
     {
         $this->id_cotizacion = $id_cotizacion;
         $this->id_empleado = $id_empleado;
@@ -135,8 +135,17 @@ class ConfigCotizacion extends Conectar{
 
     public function InsertData(){
         try {
-            $stm = $this->dbCnx->prepare("INSERT INTO cotizacion(id_empleado, id_cliente, id_material, fecha_cotizacion, hora_cotizacion, cantidad_dias, cantidad_material, total_a_pagar) VALUES(?,?,?,?,?,?,?,?)");
-            $stm->execute([$this->id_empleado, $this->id_cliente, $this->id_material, $this->fecha_cotizacion, $this->hora_cotizacion, $this->cantidad_dias, $this->cantidad_material, $this->total_a_pagar]);
+            $stm = $this->dbCnx->prepare("INSERT INTO cotizacion(id_empleado, id_cliente, id_material, fecha_cotizacion, hora_cotizacion, cantidad_dias, cantidad_material, total_a_pagar) VALUES(:id_empleado, :id_cliente, :id_material, :fecha_cotizacion, :hora_cotizacion, :cantidad_dias, :cantidad_material, :total_a_pagar)");
+            $stm->bindParam(":id_empleado", $this->id_empleado);
+            $stm->bindParam(":id_cliente", $this->id_cliente);
+            $stm->bindParam(":id_material", $this->id_material);
+            $stm->bindParam(":fecha_cotizacion", $this->fecha_cotizacion);
+            $stm->bindParam(":hora_cotizacion", $this->hora_cotizacion);
+            $stm->bindParam(":hora_cotizacion", $this->hora_cotizacion);
+            $stm->bindParam(":cantidad_dias", $this->cantidad_dias);
+            $stm->bindParam(":cantidad_material", $this->cantidad_material);
+            $stm->bindParam(":total_a_pagar", $this->total_a_pagar);
+            $stm->execute();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -144,11 +153,15 @@ class ConfigCotizacion extends Conectar{
 
     public function ObtainAll(){
         try {
-            $stm = $this->dbCnx->prepare("SELECT * FROM cotizacion");
+            $stm = $this->dbCnx->prepare("SELECT * FROM cotizacion 
+            INNER JOIN materiales ON cotizacion.id_material = materiales.id_material
+            INNER JOIN clientes ON cotizacion.id_cliente = clientes.id_cliente
+            INNER JOIN empleados ON cotizacion.id_empleado = empleados.id_empleado 
+            ORDER BY cotizacion.id_cotizacion ASC");
             $stm->execute();
             return $stm->fetchAll();
         } catch (Exception $e) {
-            return $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
@@ -210,6 +223,16 @@ class ConfigCotizacion extends Conectar{
             $stm = $this->dbCnx->prepare("SELECT id_material, nombre_material, precio FROM materiales WHERE id_material = :id_material");
             $stm->bindParam(":id_material", $this->id_material);
             $stm->execute();
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function SelectDetalle(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM cotizacion WHERE id_cotizacion = ?");
+            $stm->execute([$this->id_cotizacion]);
             return $stm->fetchAll();
         } catch (Exception $e) {
             return $e->getMessage();

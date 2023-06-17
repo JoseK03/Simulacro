@@ -2,7 +2,6 @@ CREATE DATABASE alquilartemis;
 
 USE alquilartemis;
 
-
 CREATE TABLE materiales(
     id_material INT PRIMARY KEY AUTO_INCREMENT, 
     nombre_material VARCHAR(50),

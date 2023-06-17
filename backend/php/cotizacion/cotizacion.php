@@ -16,7 +16,12 @@
  $todoEmpleado = $config->SelectEmpleado();
  $todoMaterial = $config->SelectMaterial();
 
+//? Boton detalle cotizacion----------
 
+ 
+ 
+
+ 
  
 ?>
 
@@ -57,7 +62,6 @@
     <main>
         <!-- //TODO   boton agregar cotizacion -->
         <button type="button" class="btn boton" data-bs-toggle="modal" data-bs-target="#registrarCotizacion" data-bs-whatever="@mdo">Agregar Cotizacion</button>
-
         <table class="table">
             <thead>
                 <tr>
@@ -79,10 +83,9 @@
                     <td><?php echo $value['id_cotizacion']?></td>
                     <td><?php echo $value['fecha_cotizacion']?></td>
                     <td><?php echo $value['nombre_cliente']?></td>
-                    <td><?php echo $value['id_material']?></td>
-                    <td><a href="eliminarClientes.php?id_cliente=<?=$value['id_cliente']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
-                    <td><a href="modificarClientes.php?id_cliente=<?=$value['id_cliente']?>" class="btn btn-warning">Editar</a></td>
-                    <td><button type="button"class="btn btn-primary"data-bs-toggle="modal"data-bs-target="#detalle_cotizacion">DETALLE COTIZACION</button></td>
+                    <td><?php echo $value['nombre_material']?></td>
+                    <td><a href="cotizacion.php?id_cliente=<?=$value['id_cliente']?>&req=delete" class="btn btn-danger">ELIMINAR</a></td>    
+                    <td><a href="detalleCotizacion.php?id_cotizacion=<?=$value['id_cotizacion']?>" class="btn btn-warning">DETALLE COTIZACION</a></td>
                 </tr>   
                 <?php } ?>
 
@@ -91,66 +94,7 @@
             </tbody>
         </table>
     </main>
-        <!-- MODAL DETALLE COTIZACION -->
-                        
-            <div class="modal fade" id="detalle_cotizacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Detalle Cotizacion</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" >
-                        <h1>Coca-Cola</h1>
-                        <div class="fecha" >
-                            <h4>Fecha y Hora:</h4>
-                            <div id="modalcotiza">
-                            <p>14/05/2023</p>
-                            <p>05:30</p>
-                            </div>
-                        </div>
-                        <div class="celular" class="modalcotiza">
-                            <h4>Celular:</h4>
-                            <p>00000</p>
-                        </div>
-                        <div class="nit" class="modalcotiza">
-                            <h4>NIT</h4>
-                            <p>010101</p>
-                        </div>
-                        <div class="asesor" class="modalcotiza">
-                            <h4>Asesor:</h4>
-                            <p>pepito</p>
-                        </div>
-                        <div class="producto" class="modalcotiza">
-                            <h4>Producto a alquilar:</h4>
-                            <p>martillo</p>
-                        </div>
-                        <div class="precio" class="modalcotiza">
-                            <h4>Precio por día:</h4>
-                            <p>$50.000</p>
-                        </div>
-                        <div class="catidad" class="modalcotiza">
-                            <h4>Cantidad:</h4>
-                            <p>4</p>
-                        </div>
-                        <div class="dias" class="modalcotiza">
-                            <h4>Dias de alquiler:</h4>
-                            <p>5 dias</p>
-                        </div>
-                        <div class="pago" class="modalcotiza">
-                            <h4>Total a pagar</h4>
-                            <p>$1.000.000</p>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-
+        <!-- MODAL DETALLE COTIZACION --
     <!-- modal registrar cliente -->
     <div class="modal fade" id="registrarCotizacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -171,9 +115,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="id_cliente" class="col-form-label">Cliente</label>
-                    <select name="nombre_cliente" id="id_cliente">
+                    <select name="id_cliente" id="id_cliente">
                         <?php foreach ($todoCliente as $key => $value) { ?>
-                            <option value="<?php echo $value ['nombre_cliente'] ?>" ><?php echo $value['nombre_cliente'] ?></option>
+                            <option value="<?php echo $value ['id_cliente'] ?>" ><?php echo $value['nombre_cliente'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -181,7 +125,7 @@
                     <label for="id_empleado" class="col-form-label">Asesor</label>
                     <select name="id_empleado" id="id_empleado">
                         <?php foreach ($todoEmpleado as $key => $value) { ?>
-                            <option value="<?php echo $value['  id_empleado'] ?>"><?php echo $value['nombre_empleado'] ?></option>
+                            <option value="<?php echo $value['id_empleado'] ?>"><?php echo $value['nombre_empleado'] ?></option>
                     <?php } ?>
                     </select>
                 </div>
